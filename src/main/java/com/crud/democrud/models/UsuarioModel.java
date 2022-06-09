@@ -1,6 +1,7 @@
 package com.crud.democrud.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -13,6 +14,10 @@ public class UsuarioModel {
     private String nombre;
     private String email;
     private Integer prioridad;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_RolUsuario")
+    private List<UsuarioRolModel> usuarioRol;
+
 
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
