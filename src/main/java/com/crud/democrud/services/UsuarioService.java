@@ -30,6 +30,10 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
+    public ArrayList<UsuarioModel>  obtenerPorCorreo(String email) {
+        return usuarioRepository.findByPrioridad(Integer.valueOf(email));
+    }
+
     public boolean eliminarUsuario(Long id) {
         try{
             usuarioRepository.deleteById(id);
