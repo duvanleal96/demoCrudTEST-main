@@ -30,8 +30,8 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
-    public ArrayList<UsuarioModel>  obtenerPorCorreo(String email) {
-        return usuarioRepository.findByPrioridad(Integer.valueOf(email));
+    public ArrayList<UsuarioModel>  obtenerPorEmail(String email) {
+        return usuarioRepository.findByEmail(email);
     }
 
     public boolean eliminarUsuario(Long id) {
@@ -42,6 +42,8 @@ public class UsuarioService {
             return false;
         }
     }
+
+
 
 
     

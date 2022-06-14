@@ -35,9 +35,9 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
 
-    @GetMapping("/query")
-    public ArrayList<UsuarioModel> obtenerUsuarioPorCorreo(@RequestParam("email") String email) {
-        return this.usuarioService.obtenerPorCorreo(email);
+    @GetMapping("/email/{email}")
+    public ArrayList<UsuarioModel> obtenerUsuarioPorEmail(@PathVariable("email") String email) {
+        return this.usuarioService.obtenerPorEmail(email);
     }
 
     @DeleteMapping(path = "/{id}")
@@ -49,5 +49,6 @@ public class UsuarioController {
             return "No pudo eliminar el usuario con id" + id;
         }
     }
+
 
 }

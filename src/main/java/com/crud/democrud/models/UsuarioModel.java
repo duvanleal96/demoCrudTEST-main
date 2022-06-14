@@ -12,7 +12,10 @@ public class UsuarioModel {
     @Column(unique = true, nullable = false)
     private Long id;
     private String nombre;
+    @Column(name = "email", nullable = true)
     private String email;
+
+
     private Integer prioridad;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_RolUsuario")
