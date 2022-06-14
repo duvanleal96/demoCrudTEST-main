@@ -30,7 +30,7 @@ public class UsuarioService {
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
-    public ArrayList<UsuarioModel>  obtenerPorEmail(String email) {
+    public Optional<UsuarioModel>  obtenerPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
     }
 
@@ -39,6 +39,16 @@ public class UsuarioService {
             usuarioRepository.deleteById(id);
             return true;
         }catch(Exception err){
+            return false;
+        }
+    }
+    public boolean eliminarPorEmail(String email){
+        try{
+            Optional<UsuarioModel>usuario = usuarioRepository.findByEmail(email);
+            Long id = usuario.get().getId();
+            eliminarUsuario(id);
+            return true;
+        }catch (Exception e){
             return false;
         }
     }
